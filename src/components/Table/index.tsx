@@ -3,7 +3,7 @@ import Button from "../Button";
 interface Props {
   columns: { name: string; columnName: string }[];
   data: any[];
-  handleEdit?: (item:any)=>void
+  handleEdit?: (item: any) => void;
 }
 const Table = ({ columns, data, handleEdit }: Props) => {
   return (
@@ -23,19 +23,23 @@ const Table = ({ columns, data, handleEdit }: Props) => {
       <tbody className="divide-y divide-gray-200 bg-white">
         {data.map((data) => (
           <tr key={data.id}>
-            {columns.map((column, index) => (
-              <td
-                key={index + column.columnName}
-                className="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-              >
-                {data[column.columnName]}
-              </td>
-            ))}
-              {handleEdit && <td
+            {columns.map((column, index) =>
+              data[column.columnName] ? (
+                <td
+                  key={index + column.columnName}
                   className="whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-              >
-                  <Button onClick={() => handleEdit(data)}>Edit</Button>
-              </td>}
+                >
+                  {data[column.columnName]}
+                </td>
+              ) : (
+                ""
+              )
+            )}
+            {handleEdit && (
+              <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                <Button onClick={() => handleEdit(data)}>Edit</Button>
+              </td>
+            )}
           </tr>
         ))}
       </tbody>

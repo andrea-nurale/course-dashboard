@@ -22,6 +22,7 @@ const Sidebar = () => {
           <ul className="flex flex-1 flex-col gap-y-7">
             {SIDEBAR.map((link) => (
               <li
+                key={link.href}
                 onClick={() => handleClick(link.href)}
                 className={
                   location.pathname === link.href

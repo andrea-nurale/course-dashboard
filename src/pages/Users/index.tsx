@@ -1,18 +1,32 @@
-import { useEffect } from "react"
+import {useEffect, useState} from "react"
+
+interface User {
+    age: number
+    id: number
+    lastName: string
+    name: string
+}
+
 const Users = () => {
-  const fetchUser = async () => {
-    await fetch("http://localhost:3000/users")
-  }
 
-  useEffect(() => {
-    fetchUser()
-  }, [])
+    const [users, setUsers] = useState<User[]>([])
+    const fetchUser = async () => {
+        const response = await fetch("http://localhost:3004/users")
+        const responseJson = await response?.json()
+        setUsers(responseJson)
+    }
 
-  return (
-    <div>
-      <div>Users</div>
-    </div>
-  )
+
+    useEffect(() => {
+        fetchUser()
+    }, [])
+
+    return (
+        <div>
+            <div>Users</div>
+            <div>{users.map(user => <div key={user.id}>{user.name}</div>)}</div>
+        </div>
+    )
 }
 
 export default Users

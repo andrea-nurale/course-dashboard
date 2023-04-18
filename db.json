@@ -1,4 +1,24 @@
-{
+{ "customers": [
+  {
+    "id": 1,
+    "firstName": "Mario",
+    "lastName": "Rossi",
+    "email": "test@test.com"
+  },
+  {
+    "id": 2,
+    "firstName": "Mario",
+    "lastName": "Bianchi",
+    "email": "mario.bianchi@test.com"
+  },
+  {
+    "id": 3,
+    "firstName": "Elena",
+    "lastName": "Santi",
+    "email": "elena.santi@test.com"
+  }
+  ],
+
   "users": [
     {
       "id": 1,

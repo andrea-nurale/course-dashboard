@@ -19,7 +19,7 @@ const COLUMNS: {name: string, columnName: string}[] =
 
 const Users = () => {
 
-    const [users, setUsers] = useState<any[]>([])
+    const [users, setUsers] = useState<User[]>([])
     const fetchUser = async () => {
         const response = await fetch("http://localhost:3004/users")
         const responseJson = await response?.json()

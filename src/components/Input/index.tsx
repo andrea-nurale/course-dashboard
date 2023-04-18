@@ -8,7 +8,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 const Input = ({ placeholder, type = "text", label, error, ...rest }: Props) => {
   return (
     <div>
-      <label className="block text-sm font-medium leading-6 text-gray-900">
+      <label className="block wtext-sm font-medium leading-6 text-gray-900">
         {label}
       </label>
       <div className="mt-2">

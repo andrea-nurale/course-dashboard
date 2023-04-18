@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import Modal from "../../components/Modal"
 
 const Users = () => {
   const fetchUser = async () => {
@@ -8,7 +9,11 @@ const Users = () => {
     fetchUser()
   }, [])
 
-  return <div>Users</div>
+  return (
+    <div>
+      <div>Users</div>
+    </div>
+  )
 }
 
 export default Users

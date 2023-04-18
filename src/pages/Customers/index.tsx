@@ -33,11 +33,13 @@ const Customers = () => {
   };
 
   const onClickClose = () => {
+    setCustomer(null)
     setOpen(false);
   };
 
   const handleEdit = (item: any)=>{
     setCustomer(item)
+    setOpen(true);
   }
 
   return (

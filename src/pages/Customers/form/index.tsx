@@ -1,7 +1,7 @@
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
 import Modal from "../../../components/Modal";
-import { ChangeEvent, useState } from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import {validateEmail} from "../../../utils/costants";
 import {Customer} from '../../../utils/models'
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
   customer: Customer | null
 
 }
-const Form = ({ open, handleClose, fetchCustomers }: Props) => {
+const Form = ({ open, handleClose, fetchCustomers, customer }: Props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -57,6 +57,19 @@ const Form = ({ open, handleClose, fetchCustomers }: Props) => {
     fetchCustomers();
     handleClose();
   };
+
+  useEffect(()=>{
+      if(customer){
+          setFirstName(customer.firstName)
+          setLastName(customer.lastName)
+          setEmail(customer.email)
+      }
+      else{
+          setFirstName('')
+          setLastName('')
+          setEmail('')
+      }
+  },[customer])
 
   return (
     <Modal show={open}>

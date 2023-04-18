@@ -3,11 +3,12 @@ import Button from "../../../components/Button";
 import Modal from "../../../components/Modal";
 import { ChangeEvent, useState } from "react";
 import {validateEmail} from "../../../utils/costants";
-
+import {Customer} from '../../../utils/models'
 interface Props {
   open: boolean;
   handleClose: ()=> void
   fetchCustomers: ()=> void
+  customer: Customer | null
 
 }
 const Form = ({ open, handleClose, fetchCustomers }: Props) => {

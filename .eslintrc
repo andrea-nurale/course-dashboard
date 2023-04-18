@@ -7,8 +7,5 @@
   "extends": ["react-app", "react-app/jest"],
   "parserOptions": {
     "ecmaVersion": 2020
-  },
-  "rules": {
-    "no-console": "error"
   }
 }

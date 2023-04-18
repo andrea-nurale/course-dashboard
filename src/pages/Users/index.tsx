@@ -1,15 +1,25 @@
 import {useEffect, useState} from "react"
+import Table from '../../components/Table'
 
 interface User {
     age: number
     id: number
     lastName: string
-    name: string
+    firstName: string
+    gender: string
+
 }
+
+const COLUMNS: {name: string, columnName: string}[] =
+    [{name: 'First name', columnName: 'firstName'},
+        {name: 'Last name',columnName: 'lastName'},
+        {name: 'Age', columnName: 'age'},
+        {name: 'Gender', columnName: 'gender'}
+    ]
 
 const Users = () => {
 
-    const [users, setUsers] = useState<User[]>([])
+    const [users, setUsers] = useState<any[]>([])
     const fetchUser = async () => {
         const response = await fetch("http://localhost:3004/users")
         const responseJson = await response?.json()
@@ -21,10 +31,11 @@ const Users = () => {
         fetchUser()
     }, [])
 
+
     return (
         <div>
             <div>Users</div>
-            <div>{users.map(user => <div key={user.id}>{user.name}</div>)}</div>
+            <Table columns={COLUMNS} data={users}/>
         </div>
     )
 }

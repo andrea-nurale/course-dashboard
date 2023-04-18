@@ -1,24 +1,51 @@
-{ "customers": [
-  {
-    "id": 1,
-    "firstName": "Mario",
-    "lastName": "Rossi",
-    "email": "test@test.com"
-  },
-  {
-    "id": 2,
-    "firstName": "Mario",
-    "lastName": "Bianchi",
-    "email": "mario.bianchi@test.com"
-  },
-  {
-    "id": 3,
-    "firstName": "Elena",
-    "lastName": "Santi",
-    "email": "elena.santi@test.com"
-  }
+{
+  "customers": [
+    {
+      "id": 1,
+      "firstName": "Mario",
+      "lastName": "Rossi",
+      "email": "test@test.com"
+    },
+    {
+      "id": 2,
+      "firstName": "Mario",
+      "lastName": "Bianchi",
+      "email": "mario.bianchi@test.com"
+    },
+    {
+      "id": 3,
+      "firstName": "Elena",
+      "lastName": "Santi",
+      "email": "elena.santi@test.com"
+    },
+    {
+      "id": 4
+    },
+    {
+      "firstName": "marco",
+      "lastName": "rossi",
+      "email": "test@test.com",
+      "id": 5
+    },
+    {
+      "firstName": "marco4",
+      "lastName": "rossi",
+      "email": "test@test.com",
+      "id": 6
+    },
+    {
+      "firstName": "alessandro",
+      "lastName": "rossi",
+      "email": "ale@rossi.com",
+      "id": 7
+    },
+    {
+      "firstName": "enrico",
+      "lastName": "pippo",
+      "email": "email@email.com",
+      "id": 8
+    }
   ],
-
   "users": [
     {
       "id": 1,

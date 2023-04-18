@@ -18,7 +18,7 @@ const Modal = ({ show, children }: Props) => {
         bottom: 0,
         height: "100vh",
         width: "100vw",
-        background: "rgba(0, 0, 0, 0.8)",
+        background: "rgba(0, 0, 0, 0.8)"
       }}
     >
       <div className="h-4/5 w-3/4 mt-16 mr-auto ml-auto relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all">

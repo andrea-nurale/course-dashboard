@@ -21,8 +21,8 @@ export const ROUTES = {
 
 export const SIDEBAR = [
   { name: "Dashboard", href: ROUTES.home, icon: HomeIcon, current: true },
-  { name: "Team", href: ROUTES.users, icon: UsersIcon, current: false },
-  { name: "Projects", href: ROUTES.customers, icon: FolderIcon, current: false },
+  { name: "Users", href: ROUTES.users, icon: UsersIcon, current: false },
+  { name: "Customers", href: ROUTES.customers, icon: FolderIcon, current: false },
   { name: "Calendar", href: ROUTES.calendar, icon: CalendarIcon, current: false },
   { name: "Documents", href: ROUTES.documents, icon: DocumentDuplicateIcon, current: false },
   { name: "Reports", href: ROUTES.reports, icon: ChartPieIcon, current: false },

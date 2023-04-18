@@ -21,7 +21,7 @@ const Modal = ({ show, children }: Props) => {
         background: "rgba(0, 0, 0, 0.8)"
       }}
     >
-      <div className="h-4/5 w-3/4 mt-16 mr-auto ml-auto relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all">
+      <div className="h-4/5 w-3/4 mt-16 mr-auto ml-auto relative transform overflow-auto rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all">
         {children}
       </div>
     </div>

@@ -14,7 +14,9 @@ const Layout = () => {
     >
       <Flex>
         <Sidebar />
-        <Outlet />
+          <div className='ml-56'>
+            <Outlet />
+          </div>
       </Flex>
     </div>
   )

@@ -11,7 +11,9 @@ const COLUMNS: {name: string, columnName: string}[] =
     [{name: 'First name', columnName: 'firstName'},
         {name: 'Last name',columnName: 'lastName'},
         {name: 'Age', columnName: 'age'},
-        {name: 'Gender', columnName: 'gender'}
+        {name: 'Gender', columnName: 'gender'},
+        {name: '', columnName: ''},
+        {name: '', columnName: ''}
     ]
 
 const Users = () => {
@@ -78,10 +80,10 @@ const Users = () => {
 
 
     return (
-        <div>
+        <div className="p-4">
             <div className="p-4">Users</div>
-            <Input label={''} onChange={handleChangeSearch} value={serach}/>
-            <Button onClick={handleClickNew}>New</Button>
+            <div className="w-64"><Input label={''} onChange={handleChangeSearch} value={serach}/></div>
+            <div className="flex justify-end"> <Button onClick={handleClickNew}>New</Button></div>
             <Table columns={COLUMNS} data={users} handleEdit={handleEdit} handleDelete={handleDelete}/>
             <Form open={open} user={user} fetchUser={fetchUser} handleClose={handleClose}/>
             <ModalConfirm open={openConfirm} handleClose={handleCloseConfirm} handleDelete={handleDeleteConfirm}/>

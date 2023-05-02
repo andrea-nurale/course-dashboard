@@ -1,11 +1,15 @@
 import Button from "../Button";
+import {
+    TrashIcon
+} from "@heroicons/react/24/outline"
 
 interface Props {
   columns: { name: string; columnName: string }[];
   data: any[];
   handleEdit?: (item: any) => void;
+  handleDelete?: (id: number) => void;
 }
-const Table = ({ columns, data, handleEdit }: Props) => {
+const Table = ({ columns, data, handleEdit, handleDelete }: Props) => {
   return (
     <table className="min-w-full divide-y divide-gray-300">
       <thead className="bg-gray-50">
@@ -40,6 +44,11 @@ const Table = ({ columns, data, handleEdit }: Props) => {
                 <Button onClick={() => handleEdit(data)}>Edit</Button>
               </td>
             )}
+              {handleDelete && (
+                  <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                      <TrashIcon onClick={() => handleDelete(data.id)}/>
+                  </td>
+              )}
           </tr>
         ))}
       </tbody>

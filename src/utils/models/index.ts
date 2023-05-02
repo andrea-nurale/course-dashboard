@@ -11,5 +11,10 @@ export  interface User {
     firstName: string
     gender: string
     id?: number
+}
 
+export  interface Document {
+    id?: number
+    name: string
+    content: string
 }

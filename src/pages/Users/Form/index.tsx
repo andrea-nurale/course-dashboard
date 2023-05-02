@@ -93,7 +93,6 @@ const Form = ({open, handleClose, fetchUser, user}: Props)=>{
             setLastName(user.lastName)
             setAge(String(user.age))
             setGender(user.gender)
-            handleReset()
         }
         if(!user){
             handleReset()

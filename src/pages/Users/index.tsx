@@ -1,14 +1,9 @@
 import {useEffect, useState} from "react"
 import Table from '../../components/Table'
+import Form from './Form'
+import Button from "../../components/Button";
+import {User} from "../../utils/models";
 
-interface User {
-    age: number
-    id: number
-    lastName: string
-    firstName: string
-    gender: string
-
-}
 
 const COLUMNS: {name: string, columnName: string}[] =
     [{name: 'First name', columnName: 'firstName'},
@@ -19,11 +14,26 @@ const COLUMNS: {name: string, columnName: string}[] =
 
 const Users = () => {
 
+    const [open, setOpen] = useState(false)
     const [users, setUsers] = useState<User[]>([])
+    const [user, setUser] = useState<User| null>(null)
+    const handleClickNew = ()=>{
+        setOpen(true)
+    }
+    const handleClose = ()=>{
+        setUser(null)
+        setOpen(false)
+    }
+
     const fetchUser = async () => {
         const response = await fetch("http://localhost:3004/users")
         const responseJson = await response?.json()
         setUsers(responseJson)
+    }
+
+    const handleEdit = (user: User)=>{
+        setUser(user)
+        setOpen(true)
     }
 
 
@@ -35,7 +45,9 @@ const Users = () => {
     return (
         <div>
             <div>Users</div>
-            <Table columns={COLUMNS} data={users}/>
+            <Button onClick={handleClickNew}>New</Button>
+            <Table columns={COLUMNS} data={users} handleEdit={handleEdit}/>
+            <Form open={open} user={user} fetchUser={fetchUser} handleClose={handleClose}/>
         </div>
     )
 }

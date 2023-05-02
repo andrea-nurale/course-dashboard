@@ -12,6 +12,7 @@ interface Props {
 
 }
 const Form = ({ open, handleClose, fetchCustomers, customer }: Props) => {
+    console.log({customer})
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,6 +22,8 @@ const Form = ({ open, handleClose, fetchCustomers, customer }: Props) => {
   const [emailError, setEmailError] = useState("");
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+
+      console.log(event.target.value)
     if (event.target.name === "firstName") {
       return setFirstName(event.target.value);
     }
@@ -46,6 +49,18 @@ const Form = ({ open, handleClose, fetchCustomers, customer }: Props) => {
       return null
     }
     const body = JSON.stringify({ firstName, lastName, email });
+    if(customer?.id){
+        await fetch(`http://localhost:3004/customers/${customer.id}`, {
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            method: "PATCH",
+            body,
+        });
+        fetchCustomers();
+        return handleClose();
+    }
     await fetch("http://localhost:3004/customers", {
       headers: {
         Accept: "application/json",

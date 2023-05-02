@@ -1,9 +1,10 @@
-import {useEffect, useState} from "react"
+import {ChangeEvent, useEffect, useState} from "react"
 import Table from '../../components/Table'
 import Form from './Form'
 import Button from "../../components/Button";
 import {User} from "../../utils/models";
 import ModalConfirm from "./ModalConfirm";
+import Input from "../../components/Input";
 
 
 const COLUMNS: {name: string, columnName: string}[] =
@@ -20,6 +21,7 @@ const Users = () => {
     const [users, setUsers] = useState<User[]>([])
     const [user, setUser] = useState<User| null>(null)
     const [id, setId] = useState<number| null>(null)
+    const [serach, setSearch] = useState('')
 
     const handleClickNew = ()=>{
         setOpen(true)
@@ -29,8 +31,8 @@ const Users = () => {
         setOpen(false)
     }
 
-    const fetchUser = async () => {
-        const response = await fetch("http://localhost:3004/users")
+    const fetchUser = async (value: string = '') => {
+        const response = await fetch(`http://localhost:3004/users?q=${value}`)
         const responseJson = await response?.json()
         setUsers(responseJson)
     }
@@ -63,6 +65,12 @@ const Users = () => {
 
     }
 
+    const handleChangeSearch= (event: ChangeEvent<HTMLInputElement>)=>{
+        const search = event.target.value
+        setSearch(search)
+        fetchUser(search)
+    }
+
 
     useEffect(() => {
         fetchUser()
@@ -72,6 +80,7 @@ const Users = () => {
     return (
         <div>
             <div className="p-4">Users</div>
+            <Input label={''} onChange={handleChangeSearch} value={serach}/>
             <Button onClick={handleClickNew}>New</Button>
             <Table columns={COLUMNS} data={users} handleEdit={handleEdit} handleDelete={handleDelete}/>
             <Form open={open} user={user} fetchUser={fetchUser} handleClose={handleClose}/>

@@ -46,7 +46,7 @@ const Table = ({ columns, data, handleEdit, handleDelete }: Props) => {
             )}
               {handleDelete && (
                   <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      <TrashIcon onClick={() => handleDelete(data.id)}/>
+                      <TrashIcon className="cursor-pointer" onClick={() => handleDelete(data.id)}/>
                   </td>
               )}
           </tr>

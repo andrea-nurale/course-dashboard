@@ -10,9 +10,14 @@ interface Props {
 const ModalConfirm = ({open, handleClose, handleDelete}: Props)=>{
 
     return   <Modal show={open}>
-        <div>Vuoi veramente cancellare lo user ?</div>
-        <Button onClick={handleDelete}>Si</Button>
-        <Button onClick={handleClose}>No</Button>
+        <div className=" flex flex-col h-full justify-between">
+            <div>Vuoi veramente cancellare lo user ?</div>
+            <div className="flex justify-end">
+            <Button onClick={handleDelete}>Si</Button>
+                <div className="w-6" />
+            <Button onClick={handleClose}>No</Button>
+            </div>
+        </div>
     </Modal>
 }
 
